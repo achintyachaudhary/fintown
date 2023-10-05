@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/fintown/static/css/main.e6c13ad2.css",
+    "main.js": "/fintown/static/js/main.d5b27285.js",
+    "static/js/787.cbba90f9.chunk.js": "/fintown/static/js/787.cbba90f9.chunk.js",
+    "index.html": "/fintown/index.html",
+    "main.e6c13ad2.css.map": "/fintown/static/css/main.e6c13ad2.css.map",
+    "main.d5b27285.js.map": "/fintown/static/js/main.d5b27285.js.map",
+    "787.cbba90f9.chunk.js.map": "/fintown/static/js/787.cbba90f9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.d5b27285.js"
+  ]
+}
