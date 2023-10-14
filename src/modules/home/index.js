@@ -24,7 +24,7 @@ const HomeComponent = (props) => {
     let exp = 0;
     let inc = 0;
     transactions.map((payload) =>
-      payload.type === "EXPENSE"
+      payload.type === "व्यय"
         ? (exp = exp + payload.amount)
         : (inc = inc + payload.amount)
     );
@@ -50,7 +50,7 @@ const HomeComponent = (props) => {
       {transactions?.length ? (
         <TransactionsComponent transactions={transactions} />
       ) : (
-        "No Expense to show yet 🤗"
+        "कोई खर्च नहीं 🤗"
       )}
     </Container>
   );

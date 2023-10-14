@@ -34,16 +34,16 @@ const ExpenseBox = styled.div`
 `;
 
 const BalanceBox = styled.div`
-  font-size: 18px;
+border-radius: 4px;
+  border: 1px solid #e6e8e9;
+  padding: 15px 20px;
+  font-size: 14px;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  font-weight: bold;
+  flex-direction: column;
+  gap: 10px;
+  width: 135px;
   & span {
-    color: #0d1d2c;
-    opacity: 80%;
+    color: "black";
     font-weight: bold;
     font-size: 20px;
   }
@@ -97,40 +97,40 @@ const RadioBox = styled.div`
 const AddTransactionView = (props) => {
   const [amount, setAmount] = useState();
   const [desc, setDesc] = useState();
-  const [type, setType] = useState("EXPENSE");
+  const [type, setType] = useState("व्यय");
 
   return (
     <AddTransactionContainer isAddTxnVisible={props.isAddTxnVisible}>
       <input
-        placeholder="Amount"
+        placeholder="मात्रा"
         type="number"
         value={amount}
         onChange={(e) => setAmount(e.target.value)}
       />
       <input
-        placeholder="Description"
+        placeholder="विवरण"
         value={desc}
         onChange={(e) => setDesc(e.target.value)}
       />
       <RadioBox>
         <input
           type="radio"
-          id="expense"
+          id="व्यय"
           name="type"
-          value="EXPENSE"
-          checked={type === "EXPENSE"}
+          value="व्यय"
+          checked={type === "व्यय"}
           onChange={(e) => setType(e.target.value)}
         />
-        <label htmlFor="expense">Expense</label>
+        <label htmlFor="व्यय">व्यय</label>
         <input
           type="radio"
-          id="income"
+          id="आय"
           name="type"
-          value="INCOME"
-          checked={type === "INCOME"}
+          value="आय"
+          checked={type === "आय"}
           onChange={(e) => setType(e.target.value)}
         />
-        <label htmlFor="Expense">Income</label>
+        <label htmlFor="आय">आय</label>
       </RadioBox>
 
       <AddTransaction
@@ -143,7 +143,7 @@ const AddTransactionView = (props) => {
           })
         }
       >
-        Add Transaction
+        लेन-देन जोड़ें
       </AddTransaction>
     </AddTransactionContainer>
   );
@@ -154,9 +154,8 @@ const OverViewComponent = (props) => {
   return (
     <Container>
       <BalanceBox>
-        Balance: ₹{props.income - props.expense}
         <AddTransaction onClick={() => toggleAddTXn((isVisible) => !isVisible)}>
-          {isAddTxnVisible ? "CANCEL" : "ADD"}
+          {isAddTxnVisible ? "रद्द करना" : "लेन-देन जोड़ें"}
         </AddTransaction>
       </BalanceBox>
 
@@ -172,15 +171,14 @@ const OverViewComponent = (props) => {
 
       <ExpenseContainer>
         <ExpenseBox isIncome={true}>
-          Income<span>₹{props.income}</span>
+        आय<span>₹{props.income}</span>
         </ExpenseBox>
         <ExpenseBox>
-          Expense<span>₹{props.expense}</span>
+        व्यय<span>₹{props.expense}</span>
         </ExpenseBox>
-
-        <ExpenseBox isIncome={true}>
-          Balance<span>₹{props.income}</span>
-        </ExpenseBox>
+        <BalanceBox>
+        बैलेंस्ड<span>₹{props.income - props.expense}</span>
+        </BalanceBox>
       </ExpenseContainer>
     </Container>
   );
