@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import HomeComponent from "./modules/home";
-
+import { css } from "styled-components";
 const Container = styled.div`
   background-color: white;
   color: #0d1d2c;
@@ -11,8 +11,16 @@ const Container = styled.div`
   align-items: center;
   height: 100vh;
   width: 98%;
-  padding-top: 30px ;
+  padding-top: 30px;
   font-family: Montserrat;
+`;
+
+const FontFace = css`
+  @font-face {
+    font-family: "CustomFont";
+    src: url("/Users/archaudhary/Documents/projects/fintown/public/Glegoo-Bold.ttf")
+      format("ttf");
+  }
 `;
 
 const Header = styled.div`
@@ -24,11 +32,12 @@ const Header = styled.div`
   padding: 22px;
   font-size: 25px;
   font-weight: bold;
+  font-family: "CustomFont";
 `;
 const App = () => {
   return (
     <Container>
-      <Header>Expense Tracker</Header>
+      <Header>लेखा जोखा</Header>
       <HomeComponent />
     </Container>
   );

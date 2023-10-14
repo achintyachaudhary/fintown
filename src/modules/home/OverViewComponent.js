@@ -9,12 +9,14 @@ const Container = styled.div`
   font-size: 16px;
   width: 100%;
 `;
+
 const ExpenseContainer = styled.div`
   display: flex;
   flex-direction: row;
   gap: 12px;
   margin: 20px;
 `;
+
 const ExpenseBox = styled.div`
   border-radius: 4px;
   border: 1px solid #e6e8e9;
@@ -30,6 +32,7 @@ const ExpenseBox = styled.div`
     font-size: 20px;
   }
 `;
+
 const BalanceBox = styled.div`
   font-size: 18px;
   display: flex;
@@ -45,6 +48,7 @@ const BalanceBox = styled.div`
     font-size: 20px;
   }
 `;
+
 const AddTransaction = styled.div`
   font-size: 15px;
   background: #0d1d2c;
@@ -56,6 +60,7 @@ const AddTransaction = styled.div`
   border-radius: 4px;
   font-weight: bold;
 `;
+
 const AddTransactionContainer = styled.div`
   font-size: 15px;
   display: ${(props) => (props.isAddTxnVisible ? "flex" : "none")};
@@ -76,6 +81,7 @@ const AddTransactionContainer = styled.div`
     border: 1px solid #e6e8e9;
   }
 `;
+
 const RadioBox = styled.div`
   display: flex;
   flex-direction: row;
@@ -87,6 +93,7 @@ const RadioBox = styled.div`
     margin: 0 10px;
   }
 `;
+
 const AddTransactionView = (props) => {
   const [amount, setAmount] = useState();
   const [desc, setDesc] = useState();
@@ -141,6 +148,7 @@ const AddTransactionView = (props) => {
     </AddTransactionContainer>
   );
 };
+
 const OverViewComponent = (props) => {
   const [isAddTxnVisible, toggleAddTXn] = useState(false);
   return (
@@ -151,6 +159,7 @@ const OverViewComponent = (props) => {
           {isAddTxnVisible ? "CANCEL" : "ADD"}
         </AddTransaction>
       </BalanceBox>
+
       {isAddTxnVisible && (
         <AddTransactionView
           isAddTxnVisible={isAddTxnVisible}
@@ -160,15 +169,21 @@ const OverViewComponent = (props) => {
           }}
         />
       )}
+
       <ExpenseContainer>
+        <ExpenseBox isIncome={true}>
+          Income<span>₹{props.income}</span>
+        </ExpenseBox>
         <ExpenseBox>
           Expense<span>₹{props.expense}</span>
         </ExpenseBox>
+
         <ExpenseBox isIncome={true}>
-          Income<span>₹{props.income}</span>
+          Balance<span>₹{props.income}</span>
         </ExpenseBox>
       </ExpenseContainer>
     </Container>
   );
 };
+
 export default OverViewComponent;
