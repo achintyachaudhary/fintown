@@ -42,6 +42,7 @@ const TransactionCell = (props) => {
     </Cell>
   );
 };
+
 const TransactionsComponent = (props) => {
   const [searchText, updateSearchText] = useState("");
   const [filteredTransaction, updateTxn] = useState(props.transactions);
@@ -78,4 +79,5 @@ const TransactionsComponent = (props) => {
     </Container>
   );
 };
+
 export default TransactionsComponent;
