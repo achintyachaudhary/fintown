@@ -36,7 +36,7 @@ const Cell = styled.div`
 `;
 const TransactionCell = (props) => {
   return (
-    <Cell isExpense={props.payload?.type === "EXPENSE"}>
+    <Cell isExpense={props.payload?.type === "व्यय"}>
       <span>{props.payload?.desc}</span>
       <span>₹{props.payload?.amount}</span>
     </Cell>
@@ -64,9 +64,9 @@ const TransactionsComponent = (props) => {
 
   return (
     <Container>
-      Transactions
+      लेन-देन सूची
       <input
-        placeholder="Search"
+        placeholder="सर्च करे"
         onChange={(e) => {
           updateSearchText(e.target.value);
           filterData(e.target.value);
