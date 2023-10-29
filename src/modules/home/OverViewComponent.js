@@ -34,7 +34,7 @@ const ExpenseBox = styled.div`
 `;
 
 const BalanceBox = styled.div`
-border-radius: 4px;
+  border-radius: 4px;
   border: 1px solid #e6e8e9;
   padding: 15px 20px;
   font-size: 14px;
@@ -171,13 +171,13 @@ const OverViewComponent = (props) => {
 
       <ExpenseContainer>
         <ExpenseBox isIncome={true}>
-        आय<span>₹{props.income}</span>
+          आय<span>₹{props.income}</span>
         </ExpenseBox>
         <ExpenseBox>
-        व्यय<span>₹{props.expense}</span>
+          व्यय<span>₹{props.expense}</span>
         </ExpenseBox>
         <BalanceBox>
-        बैलेंस्ड<span>₹{props.income - props.expense}</span>
+          बैलेंस्ड<span>₹{props.income - props.expense}</span>
         </BalanceBox>
       </ExpenseContainer>
     </Container>
