@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import OverViewComponent from "./OverViewComponent";
 import TransactionsComponent from "./TransactionsComponent";
+import axios from 'axios';
 
 const Container = styled.div`
   background-color: white;
@@ -32,8 +33,33 @@ const HomeComponent = (props) => {
     updateIncome(inc);
   };
 
-  useEffect(() => calculateBalance(), [transactions]);
-
+//   useEffect(() => calculateBalance(), [transactions]);
+  useEffect(() => {
+    const url = 'https://sheetdb.io/api/v1/6bl4if0p4iyhl--';
+    const data = {
+        id: 1,
+        narration: 'this is sample transaction 22',
+        amount:100
+      };
+    
+      const config = {
+        headers: {
+          'Authorization': 'Bearer c3uamxebj27a7lqdchkgjetubgcz482plsn0eh30',
+          'Content-Type': 'application/json',
+        },
+      };
+    
+      axios.post(url, data, config)
+        .then((response) => {
+          // Handle the response data here
+          console.log('API response:', response.data);
+        })
+        .catch((error) => {
+          // Handle any errors
+          console.error('API error:', error);
+        });
+  }, [transactions]);
+  
   const addTransaction = (payload) => {
     const transactionArray = [...transactions];
     transactionArray.push(payload);
